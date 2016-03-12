@@ -14,7 +14,7 @@ from datasets.dog_cat import dog_cat
 import numpy as np
 
 imageset = 'dog-cat'
-devkit = '/home/lobo/environment/py-faster-rcnn/data/dog_cat/Images'
+devkit = '/home/lobo/project/dog-cat-rcnn/data/dog-cat'
 
 # Set up voc_<year>_<split> using selective search "fast" mode
 """

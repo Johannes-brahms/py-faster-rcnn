@@ -104,10 +104,30 @@ class imdb(object):
         widths = self._get_widths()
         for i in xrange(num_images):
             boxes = self.roidb[i]['boxes'].copy()
+
+            print boxes.shape
+            print boxes
             oldx1 = boxes[:, 0].copy()
             oldx2 = boxes[:, 2].copy()
-            boxes[:, 0] = widths[i] - oldx2 - 1
-            boxes[:, 2] = widths[i] - oldx1 - 1
+
+            print i
+            print widths[i]
+            print 'oldx2 --> ', oldx2
+            print 'oldx1 --> ', oldx1
+            
+
+            if oldx1[0] > 60000:
+                oldx1[0] = 0
+
+            boxes[:, 0] = widths[i] - oldx2 #- 1
+            boxes[:, 2] = widths[i] - oldx1 #- 1
+            print boxes[:,2]
+            print boxes[:,0]
+
+            
+
+
+
             assert (boxes[:, 2] >= boxes[:, 0]).all()
             entry = {'boxes' : boxes,
                      'gt_overlaps' : self.roidb[i]['gt_overlaps'],
@@ -207,6 +227,8 @@ class imdb(object):
                 'gt_overlaps': gt_overlaps}
 
     def create_roidb_from_box_list(self, box_list, gt_roidb):
+        print self.num_images
+        print len(box_list)
         assert len(box_list) == self.num_images, \
                 'Number of boxes must match number of ground-truth images'
         roidb = []

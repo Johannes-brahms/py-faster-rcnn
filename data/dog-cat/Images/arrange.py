@@ -34,6 +34,7 @@ def xml(image, cls, coordinate):
                 '  </filename>\n'
                 '  <object>\n'
                     '   <name>{}</name>\n'
+                    '    <difficult>0</difficult>\n'
                     '   <bndbox>\n'
                         '    <xmin>{}</xmin>\n'
                         '    <ymin>{}</ymin>\n'
@@ -110,6 +111,24 @@ def arrange(directory):
 
 
 
+        if height > 400 :
+            
+            rate = height / float(400)
+            height = 400
+            width  = width / rate
+
+    
+            width = int(width)
+            image = cv2.resize(image, (width, height))
+            cv2.imwrite(os.path.join(directory,name +'.jpg'), image)
+       
+
+
+        
+
+
+        #print 'write file to -> {}'.format(os.path.join(directory,name + '.jpg'))
+
         annotations = '{}/{} {} {} {} {} {}\n'.format(
             cls, 
             name + '.jpg',
@@ -117,7 +136,7 @@ def arrange(directory):
             0, 0, width, height)
 
         
-        #annotation.writelines(annotations)
+        annotation.writelines(annotations)
 
         coordinate = [0, 0, width, height]
 
