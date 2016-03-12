@@ -1,0 +1,15 @@
+<annotation>
+ <folder>dog_cat</folder>
+  <filename>
+   <item>dog_7</item>
+  </filename>
+  <object>
+   <name>dog</name>
+   <bndbox>
+    <xmin>0</xmin>
+    <ymin>0</ymin>
+    <xmax>428</xmax>
+    <ymax>551</ymax>
+   </bndbox>
+   </object>
+</annotation>
