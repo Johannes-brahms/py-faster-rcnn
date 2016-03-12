@@ -13,7 +13,7 @@ from datasets.dog_cat import dog_cat
 #from datasets.coco import coco
 import numpy as np
 
-imageset = 'dog_cat'
+imageset = 'dog-cat'
 devkit = '/home/lobo/environment/py-faster-rcnn/data/dog_cat/Images'
 
 # Set up voc_<year>_<split> using selective search "fast" mode
@@ -39,7 +39,7 @@ for year in ['2015']:
 def get_imdb(name):
     """Get an imdb (image database) by name."""
 
-    __sets['dog_cat'] = (
+    __sets['dog-cat'] = (
         lambda 
         imageset = imageset, 
         devkit = devkit : 
